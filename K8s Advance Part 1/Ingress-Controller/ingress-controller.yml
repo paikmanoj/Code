@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-rules
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - host: nginx-official.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx-official-service
+          servicePort: 80
+  - host: magical-nginx.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: magical-nginx
+          servicePort: 80

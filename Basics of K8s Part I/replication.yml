@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rc-nginx
+#this is the name of the ReplicationController
+spec:
+  replicas: 3
+  selector:
+    app: rc-nginx
+#this is the name should match with above ReplicationController Name
+  template:
+    metadata:
+      name: mypod-nginx
+#this is the name of the Pods
+      labels:
+        app: rc-nginx
+#this is the name should match with above ReplicationController Name
+    spec:
+      containers:
+      - name: mycont-nginx
+#this is the name of the Container
+        image: nginx
+#this is the name of the Container Images to be pulled by Docker
+        ports:
+        - containerPort: 80

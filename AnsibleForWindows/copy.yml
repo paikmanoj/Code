@@ -1,0 +1,8 @@
+---
+- hosts: win
+  tasks:
+  - name: Copy File
+    ansible.windows.win_copy:
+      src: C:\abc\test.txt
+      dest: C:\xyz\
+      remote_src: yes

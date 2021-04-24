@@ -1,0 +1,17 @@
+# This is a sample Service yaml code
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx-pod
+# This service will be applied to all the Pods that have Lable as *nginx-pod*
+  type: NodePort
+# Specify the type of Service here
+  ports:
+  - nodePort: 30572
+    port: 80
+    protocol: TCP
+    targetPort: nginx-port
+# This service will be applied to all the Pods that have targetPort as *nginx-port*

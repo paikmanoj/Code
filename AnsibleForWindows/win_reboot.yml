@@ -1,0 +1,10 @@
+---
+- name: Reboot the machine with all defaults 
+  hosts: win 
+
+  tasks: 
+   - name: Reboot the machine with all defaults
+     ansible.windows.win_reboot:
+       post_reboot_delay: 120
+#   more details here-->
+#   https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_reboot_module.html
