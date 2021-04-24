@@ -1,0 +1,9 @@
+---
+-   hosts: awslunix
+    become: true
+    tasks:
+        - name: Copy files to remove host
+          git:
+            repo: https://github.com/paikmanoj/ansibledeploy.git
+            dest: /var/www/html
+            force: yes
